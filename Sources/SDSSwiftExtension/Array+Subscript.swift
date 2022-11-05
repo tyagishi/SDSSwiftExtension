@@ -12,6 +12,7 @@ extension Array {
         return indices.contains(index) ? self[index] : nil
     }
     subscript(loop index: Array.Index) -> Array.Element? {
+        if self.count == 0 { return nil }
         let adjustedIndex = index >= 0 ? index : (index + count * (abs(index) / count + 1))
         let newIndex = adjustedIndex % count
         return self[safe: newIndex]

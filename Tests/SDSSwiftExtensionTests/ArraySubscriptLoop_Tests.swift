@@ -19,6 +19,13 @@ final class ArraySubscriptLoop_Tests: XCTestCase {
         XCTAssertEqual(four, 4)
     }
 
+    func test_loopReturnNilOnlyForEmptyArray() async throws {
+        let sut:[Int] = []
+
+        let element = sut[loop:0]
+        XCTAssertNil(element)
+    }
+
     func test_loopReturnElementBeforeStart() async throws {
         let sut = [0, 1, 2, 3, 4]
 
