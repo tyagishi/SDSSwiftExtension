@@ -56,3 +56,14 @@ array = [0,1,2,3,4]
 
 array[loop:6] will return array[1] i.e. 1
 
+## Duration / TimeInterval conversion (macOS13/iOS16 or later)
+convert between Duration and TimeInterval
+```
+let duration = Duration.seconds(5)
+let timeInterval = duration.timeInteval
+```
+
+```
+let timeInterval: TimeInterval = 5
+let duration = Duration(timeInterval: timeInterval)
+```
