@@ -7,11 +7,13 @@
 
 import Foundation
 
-extension Array {
-    subscript(safe index: Array.Index) -> Array.Element? {
+extension Collection {
+    public subscript(safe index: Index) -> Element? {
         return indices.contains(index) ? self[index] : nil
     }
-    subscript(loop index: Array.Index) -> Array.Element? {
+}
+extension Array {
+    public subscript(loop index: Array.Index) -> Array.Element? {
         if self.count == 0 { return nil }
         let adjustedIndex = index >= 0 ? index : (index + count * (abs(index) / count + 1))
         let newIndex = adjustedIndex % count
