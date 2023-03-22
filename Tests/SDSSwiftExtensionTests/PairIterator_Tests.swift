@@ -41,4 +41,27 @@ final class PairIterator_Tests: XCTestCase {
         var iterator = PairIterator(array)
         XCTAssertNil(iterator.next())
     }
+
+    func test_makePairIterator() async throws {
+        let array = [1,2,3,4]
+        var iterator = array.makePairIterator()
+        let (c1,n1) = try XCTUnwrap(iterator.next())
+        XCTAssertEqual(c1, 1)
+        XCTAssertEqual(n1, 2)
+
+        let (c2,n2) = try XCTUnwrap(iterator.next())
+        XCTAssertEqual(c2, 2)
+        XCTAssertEqual(n2, 3)
+
+        let (c3,n3) = try XCTUnwrap(iterator.next())
+        XCTAssertEqual(c3, 3)
+        XCTAssertEqual(n3, 4)
+
+        let (c4,n4) = try XCTUnwrap(iterator.next())
+        XCTAssertEqual(c4, 4)
+        XCTAssertEqual(n4, nil)
+
+        XCTAssertNil(iterator.next())
+    }
+
 }

@@ -26,8 +26,8 @@ public struct PairIterator<C:Collection>{
     }
 }
 
-//extension Collection {
-//    func pairIterator<C: Collection>() -> PairIterator<C> {
-//        return PairIterator(self)
-//    }
-//}
+extension Array {
+    public func makePairIterator() -> PairIterator<Array> {
+        return PairIterator(self)
+    }
+}
