@@ -31,3 +31,9 @@ extension Array {
         return PairIterator(self)
     }
 }
+
+extension Set {
+    public func makePairIterator() -> PairIterator<Set> {
+        return PairIterator(self)
+    }
+}
