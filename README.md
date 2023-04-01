@@ -2,6 +2,10 @@
 
 convenient extension for Swift 
 
+## DictionaryWithDefault
+dictionary type having default value inside
+
+
 ## PairIterator
 ### functionality
 from Collection, PairIterator will return paired element
