@@ -11,6 +11,13 @@ public struct DictionaryWithDefault<Key: Hashable, Value> {
     var dictionary: [Key: Value]
     var defaultValue: Value
 
+    public var keys: Dictionary<Key, Value>.Keys {
+        dictionary.keys
+    }
+    public var values: Dictionary<Key, Value>.Values {
+        dictionary.values
+    }
+    
     public init(_ dic: [Key: Value] = [:], defaultValue: Value) {
         self.dictionary = dic
         self.defaultValue = defaultValue
