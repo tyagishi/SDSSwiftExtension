@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct PairIterator<C:Collection>{
+public struct PairIterator<C: Collection> {
     let collection: C
     var currentIterator: C.Iterator
     var nextIterator: C.Iterator

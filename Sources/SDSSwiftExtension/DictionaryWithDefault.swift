@@ -7,6 +7,7 @@
 
 import Foundation
 
+@available(*, deprecated, message: "use SDSDataStructure package instead")
 public struct DictionaryWithDefault<Key: Hashable, Value> {
     var dictionary: [Key: Value]
     var defaultValue: Value
@@ -17,7 +18,7 @@ public struct DictionaryWithDefault<Key: Hashable, Value> {
     public var values: Dictionary<Key, Value>.Values {
         dictionary.values
     }
-    
+
     public init(_ dic: [Key: Value] = [:], defaultValue: Value) {
         self.dictionary = dic
         self.defaultValue = defaultValue
