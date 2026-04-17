@@ -61,6 +61,7 @@ array = [0,1,2,3,4]
 array[loop:6] will return array[1] i.e. 1
 
 ## Duration / TimeInterval conversion (macOS13/iOS16 or later)
+Note: moved to SDSFoundationExtension
 convert between Duration and TimeInterval
 ```
 let duration = Duration.seconds(5)
@@ -70,4 +71,20 @@ let timeInterval = duration.timeInteval
 ```
 let timeInterval: TimeInterval = 5
 let duration = Duration(timeInterval: timeInterval)
+```
+
+## ClosedRange calculation
+calc ratio from value and ClosedRange
+calc value from ClosedRange and ratio
+
+```
+let sut = (1.1)...(3.7)
+
+XCTAssertEqual(sut.ratio(for: 1.1), 0.0, accuracy: 0.01)
+XCTAssertEqual(sut.ratio(for: 3.7), 1.0, accuracy: 0.01)
+XCTAssertEqual(sut.ratio(for: 2.4), 0.5, accuracy: 0.01)
+
+XCTAssertEqual(sut.value(from: 0.0), 1.1, accuracy: 0.01)
+XCTAssertEqual(sut.value(from: 1.0), 3.7, accuracy: 0.01)
+XCTAssertEqual(sut.value(from: 0.5), 2.4, accuracy: 0.01)
 ```

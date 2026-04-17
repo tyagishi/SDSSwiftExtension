@@ -17,3 +17,15 @@ extension ClosedRange {
         return self
     }
 }
+
+extension ClosedRange where Bound == Double {
+    func ratio(for value: Bound) -> Bound {
+        return (value - self.lowerBound) / (self.upperBound - self.lowerBound)
+    }
+    func value(from ratio: Bound) -> Bound {
+        return self.lowerBound + (self.upperBound - self.lowerBound) * ratio
+    }
+    func stride(step: Bound) -> StrideThrough<Bound> {
+        return Swift.stride(from: self.lowerBound, through: self.upperBound, by: step)
+    }
+}
