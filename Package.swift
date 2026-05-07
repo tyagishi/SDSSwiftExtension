@@ -17,19 +17,23 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/SimplyDanny/SwiftLintPlugins", exact: "0.56.1"),
+        .package(url: "https://github.com/apple/swift-async-algorithms", from: "1.0.0"),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "SDSSwiftExtension",
-            dependencies: [],
+            dependencies: [
+            ],
             plugins: [
                 .plugin(name: "SwiftLintBuildToolPlugin", package: "SwiftLintPlugins")
             ]
         ),
         .testTarget(
             name: "SDSSwiftExtensionTests",
-            dependencies: ["SDSSwiftExtension"]),
+            dependencies: ["SDSSwiftExtension",
+                           .product(name: "AsyncAlgorithms", package: "swift-async-algorithms"),
+            ]),
     ]
 )
