@@ -23,10 +23,18 @@ extension RangeSet {
         }
         return rangeSet
         #else
-        let sorted = self.ranges.sorted(by: { $0.lowerBound < $1.lowerBound })
-        guard let start = sorted.first?.lowerBound,
-              let end = sorted.last?.upperBound else { return RangeSet() }
+        let lower = ranges.map({ $0.lowerBound }).min()
+        let upper = ranges.map({ $0.upperBound }).max()
+        guard let start = lower,
+              let end = upper else { return RangeSet() }
         return RangeSet(start..<end).subtracting(self)
         #endif
+    }
+
+    /// find gap-range from RangeSet
+    /// - Parameter value: gap-range includes the value
+    /// - Returns: gap-range iff exists
+    public func findGapRange(includes value: Bound) -> Range<Bound>? {
+        return gapRangeSet.ranges.first(where: { $0.contains(value) })
     }
 }
