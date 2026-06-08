@@ -15,7 +15,7 @@ extension Range where Bound == Date {
         calendar.dateComponents([.month], from: self.lowerBound, to: self.upperBound).month
     }
     @available(macOS 13.0, iOS 16.0, *)
-    var duration: Duration {
+    public var duration: Duration {
         // swiftlint:disable:next line_length
         Duration(secondsComponent: Int64(upperBound.timeIntervalSinceReferenceDate - lowerBound.timeIntervalSinceReferenceDate),
                  attosecondsComponent: 0)
